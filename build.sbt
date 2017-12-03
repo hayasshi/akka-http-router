@@ -3,19 +3,22 @@ import ReleaseTransformations._
 
 lazy val root = (project in file(".")).
   settings(
-    inThisBuild(List(
-      organization := "com.github.hayasshi",
-      scalaVersion := "2.12.1"
-    )),
-    name := "akka-http-easy-router",
+    organization := "com.github.hayasshi",
+    name         := "akka-http-easy-router",
+
+    scalaVersion       := Versions.scalaVersion,
+    crossScalaVersions := Versions.crossScalaVersions,
+
     scalacOptions ++= {
       Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds", "-Xfuture", "-Xlint")
     },
+
     libraryDependencies ++= Seq(
       akkaHttp % Provided,
       akkaHttpTestKit % Test,
       scalaTest % Test
     ),
+
     pomExtra in Global := {
       <url>https://github.com/hayasshi/akka-http-easy-router</url>
       <licenses>
@@ -37,12 +40,14 @@ lazy val root = (project in file(".")).
         </developer>
       </developers>
     },
+
     credentials += Credentials(
       "Sonatype Nexus Repository Manager",
       "oss.sonatype.org",
       sys.env.getOrElse("SONATYPE_USER", ""),
       sys.env.getOrElse("SONATYPE_PASSWORD", "")
     ),
+
     releaseProcess := Seq[ReleaseStep](
       checkSnapshotDependencies,
       inquireVersions,
