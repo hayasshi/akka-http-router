@@ -48,6 +48,7 @@ lazy val root = (project in file(".")).
       sys.env.getOrElse("SONATYPE_PASSWORD", "")
     ),
 
+    releaseCrossBuild := true,
     releaseProcess := Seq[ReleaseStep](
       checkSnapshotDependencies,
       inquireVersions,
