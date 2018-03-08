@@ -4,7 +4,7 @@ import ReleaseTransformations._
 lazy val root = (project in file(".")).
   settings(
     organization := "com.github.hayasshi",
-    name         := "akka-http-router",
+    name         := "akkahttp_easyrouter",
 
     scalaVersion       := Versions.scalaVersion,
     crossScalaVersions := Versions.crossScalaVersions,
