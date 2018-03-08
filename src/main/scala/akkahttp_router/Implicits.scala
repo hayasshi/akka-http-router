@@ -1,4 +1,4 @@
-package com.github.hayasshi.akkahttp_easyrouter
+package akkahttp_router
 
 import akka.http.scaladsl.server.Route
 

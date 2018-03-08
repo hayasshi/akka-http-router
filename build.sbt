@@ -4,7 +4,7 @@ import ReleaseTransformations._
 lazy val root = (project in file(".")).
   settings(
     organization := "com.github.hayasshi",
-    name         := "akka-http-easy-router",
+    name         := "akka-http-router",
 
     scalaVersion       := Versions.scalaVersion,
     crossScalaVersions := Versions.crossScalaVersions,
@@ -20,7 +20,7 @@ lazy val root = (project in file(".")).
     ),
 
     pomExtra in Global := {
-      <url>https://github.com/hayasshi/akka-http-easy-router</url>
+      <url>https://github.com/hayasshi/akka-http-router</url>
       <licenses>
         <license>
           <name>Apache 2</name>
@@ -28,9 +28,9 @@ lazy val root = (project in file(".")).
         </license>
       </licenses>
       <scm>
-        <connection>scm:git:github.com/hayasshi/akka-http-easy-router</connection>
-        <developerConnection>scm:git:git@github.com:hayasshi/akka-http-easy-router</developerConnection>
-        <url>github.com/hayasshi/akka-http-easy-router</url>
+        <connection>scm:git:github.com/hayasshi/akka-http-router</connection>
+        <developerConnection>scm:git:git@github.com:hayasshi/akka-http-router</developerConnection>
+        <url>github.com/hayasshi/akka-http-router</url>
       </scm>
       <developers>
         <developer>

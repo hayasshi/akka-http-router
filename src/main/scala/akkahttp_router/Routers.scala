@@ -1,4 +1,4 @@
-package com.github.hayasshi.akkahttp_easyrouter
+package akkahttp_router
 
 import akka.http.scaladsl.model.HttpMethod
 import akka.http.scaladsl.server.Directives.{ method => methodDirective, _ }
@@ -6,7 +6,7 @@ import akka.http.scaladsl.server.{ PathMatcher, Route }
 
 trait Routers {
 
-  trait RouteDefine {
+  trait RouteDefinition {
     type PathParam
 
     def method: HttpMethod
@@ -16,7 +16,7 @@ trait Routers {
     lazy val route: Route = methodDirective(method)(path(pathMatcher).tapply(action))
   }
 
-  def route[L](_method: HttpMethod, _pathMatcher: PathMatcher[L], _action: L => Route): RouteDefine = new RouteDefine {
+  def route[L](_method: HttpMethod, _pathMatcher: PathMatcher[L], _action: L => Route): RouteDefinition = new RouteDefinition {
     type PathParam = L
 
     val method: HttpMethod = _method
@@ -24,7 +24,7 @@ trait Routers {
     val action: PathParam => Route = _action
   }
 
-  case class Router(routeDefines: RouteDefine*) {
+  case class Router(routeDefines: RouteDefinition*) {
     val routes: Seq[Route] = routeDefines.map(_.route)
     val route: Route = routes.reduce(_ ~ _)
   }
