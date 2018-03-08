@@ -1,7 +1,7 @@
-# akka-http-easy-router
+# akka-http-router
 
 ```scala
-import com.github.hayasshi.akkahttp_easyrouter._
+import akkahttp_router._
 
 import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.server.Directives._
@@ -90,7 +90,7 @@ val getProduct: ((Long, Long)) => Route = ???
 And defined.
 
 ```scala
-import com.github.hayasshi.akkahttp_easyrouter._
+import akkahttp_router._
 
 import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.server.Directives._
