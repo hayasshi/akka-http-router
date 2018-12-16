@@ -1,8 +1,8 @@
 package akkahttp_router
 
 import akka.http.scaladsl.model.HttpMethod
-import akka.http.scaladsl.server.Directives.{ method => methodDirective, _ }
-import akka.http.scaladsl.server.{ PathMatcher, Route }
+import akka.http.scaladsl.server.Directives.{method => methodDirective, _}
+import akka.http.scaladsl.server.{PathMatcher, Route}
 
 trait Routers {
 
@@ -13,7 +13,12 @@ trait Routers {
     def pathMatcher: PathMatcher[PathParam]
     def action: PathParam => Route
 
-    lazy val route: Route = methodDirective(method)(path(pathMatcher).tapply(action))
+    lazy val route: Route =
+      path(pathMatcher).tapply { t =>
+        methodDirective(method) {
+          action(t)
+        }
+      }
   }
 
   def route[L](_method: HttpMethod, _pathMatcher: PathMatcher[L], _action: L => Route): RouteDefinition = new RouteDefinition {

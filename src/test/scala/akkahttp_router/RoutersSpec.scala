@@ -2,9 +2,9 @@ package akkahttp_router
 
 import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.server.Directives._
-import akka.http.scaladsl.server.Route
+import akka.http.scaladsl.server.{MethodRejection, Route}
 import akka.http.scaladsl.testkit.ScalatestRouteTest
-import org.scalatest.{ FlatSpec, Matchers }
+import org.scalatest.{FlatSpec, Matchers}
 
 class RoutersSpec extends FlatSpec with Matchers with ScalatestRouteTest {
 
@@ -40,6 +40,25 @@ class RoutersSpec extends FlatSpec with Matchers with ScalatestRouteTest {
       responseAs[String] should be(expected.toString)
     }
   }
+
+  it should "return MethodRejection when be requested that defined path and not defined method" in {
+    Get("/category") ~> target ~> check {
+      handled shouldBe false
+      rejections shouldBe List(MethodRejection(POST))
+    }
+  }
+
+  it should "return NotFoundRejection(empty list) when be requested that not defined path" in {
+    Post("/foo") ~> target ~> check {
+      handled shouldBe false
+      rejections shouldBe List()
+    }
+    Put("/foo") ~> target ~> check {
+      handled shouldBe false
+      rejections shouldBe List()
+    }
+  }
+
 
   "The route with pathPrefix" should "return ok for POST request to the /test/category" in {
     Post("/test/category") ~> targetWithPrefix ~> check {
