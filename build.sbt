@@ -42,13 +42,16 @@ lazy val root = (project in file(".")).
       </developers>
     },
 
+    publishTo := sonatypePublishTo.value,
+    publishMavenStyle := true,
+    
     credentials += Credentials(
       "Sonatype Nexus Repository Manager",
       "oss.sonatype.org",
       sys.env.getOrElse("SONATYPE_USER", ""),
       sys.env.getOrElse("SONATYPE_PASSWORD", "")
     ),
-
+    
     releaseCrossBuild := true,
     releaseProcess := Seq[ReleaseStep](
       checkSnapshotDependencies,
