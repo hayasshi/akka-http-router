@@ -21,7 +21,11 @@ trait Routers {
       }
   }
 
-  def route[L](_method: HttpMethod, _pathMatcher: PathMatcher[L], _action: L => Route): RouteDefinition = new RouteDefinition {
+  def route[L](
+      _method: HttpMethod,
+      _pathMatcher: PathMatcher[L],
+      _action: L => Route
+  ): RouteDefinition = new RouteDefinition {
     type PathParam = L
 
     val method: HttpMethod = _method
