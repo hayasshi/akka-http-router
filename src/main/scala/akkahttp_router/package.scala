@@ -1,3 +1,1 @@
-package object akkahttp_router
-    extends Routers
-    with Implicits
+package object akkahttp_router extends Routers with Implicits
