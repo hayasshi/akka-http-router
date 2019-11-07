@@ -7,7 +7,7 @@ object Dependencies {
     val crossScalaVersions = Seq("2.11.12", "2.12.6")
     val scalaVersion       = crossScalaVersions.head
     val akkaVersion        = "2.5.12"
-    val akkaHttpVersion    = "10.1.4"
+    val akkaHttpVersion    = "10.1.10"
   }
 
   lazy val akkaStream      = "com.typesafe.akka" %% "akka-stream" % Versions.akkaVersion
