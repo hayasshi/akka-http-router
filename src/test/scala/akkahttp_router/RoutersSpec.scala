@@ -13,9 +13,11 @@ class RoutersSpec extends FlatSpec with Matchers with ScalatestRouteTest {
   val productName = Remaining
 
   val router = Router(
+    // format: off
     route(POST,   "category",                                         complete("ok")),
     route(GET,    "category" / categoryId,                            (cid: Long) => complete(cid.toString)),
     route(DELETE, "category" / categoryId / "products" / productName, (t: (Long, String)) => complete(t.toString))
+    // format: on
   )
 
   val target: Route = router.route
@@ -58,7 +60,6 @@ class RoutersSpec extends FlatSpec with Matchers with ScalatestRouteTest {
       rejections shouldBe List()
     }
   }
-
 
   "The route with pathPrefix" should "return ok for POST request to the /test/category" in {
     Post("/test/category") ~> targetWithPrefix ~> check {

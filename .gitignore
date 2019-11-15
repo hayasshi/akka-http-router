@@ -18,3 +18,7 @@ project/plugins/project/
 
 # IntellijIDEA
 .idea
+
+# Metals
+.metals
+.bloop
