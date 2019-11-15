@@ -15,8 +15,9 @@ lazy val root = (project in file(".")).
     libraryDependencies ++= Seq(
       akkaStream % Provided,
       akkaHttp % Provided,
-      akkaHttpTestKit % Test,
-      scalaTest % Test
+      scalaTest % Test,
+      akkaStreamTestKit % Test,
+      akkaHttpTestKit % Test
     ),
 
     pomExtra in Global := {

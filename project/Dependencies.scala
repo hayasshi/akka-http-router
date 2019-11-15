@@ -10,9 +10,10 @@ object Dependencies {
     val akkaHttpVersion    = "10.1.10"
   }
 
-  lazy val akkaStream      = "com.typesafe.akka" %% "akka-stream" % Versions.akkaVersion
-  lazy val akkaHttp        = "com.typesafe.akka" %% "akka-http" % Versions.akkaHttpVersion
-  lazy val akkaHttpTestKit = "com.typesafe.akka" %% "akka-http-testkit" % Versions.akkaHttpVersion
+  lazy val akkaStream        = "com.typesafe.akka" %% "akka-stream" % Versions.akkaVersion
+  lazy val akkaStreamTestKit = "com.typesafe.akka" %% "akka-stream-testkit" % Versions.akkaVersion
+  lazy val akkaHttp          = "com.typesafe.akka" %% "akka-http" % Versions.akkaHttpVersion
+  lazy val akkaHttpTestKit   = "com.typesafe.akka" %% "akka-http-testkit" % Versions.akkaHttpVersion
 
   lazy val scalaTest = "org.scalatest" %% "scalatest" % "3.0.8"
 
