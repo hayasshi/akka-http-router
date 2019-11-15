@@ -76,7 +76,7 @@ This tool separates route definition and application logic like the [PlayFramewo
 ```scala
 resolvers += Resolver.sonatypeRepo("releases")
 
-libraryDependencies += "com.github.hayasshi" %% "akka-http-router" % "0.4.0"
+libraryDependencies += "com.github.hayasshi" %% "akka-http-router" % "0.5.0"
 ```
 
 ## Usage
