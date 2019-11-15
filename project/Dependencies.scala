@@ -6,7 +6,7 @@ object Dependencies {
     // same version as akka-http
     val crossScalaVersions = Seq("2.12.10", "2.11.12")
     val scalaVersion       = crossScalaVersions.head
-    val akkaVersion        = "2.5.12"
+    val akkaVersion        = "2.5.26"
     val akkaHttpVersion    = "10.1.4"
   }
 
