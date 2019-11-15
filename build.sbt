@@ -9,7 +9,7 @@ lazy val root = (project in file(".")).
     crossScalaVersions := Versions.crossScalaVersions,
 
     scalacOptions ++= {
-      Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds", "-Xfuture", "-Xlint")
+      Seq("-unchecked", "-deprecation", "-feature", "-language:implicitConversions", "-language:higherKinds", "-Xlint")
     },
 
     libraryDependencies ++= Seq(
