@@ -3,7 +3,6 @@ import sbt._
 object Dependencies {
 
   object Versions {
-    // same version as akka-http
     val crossScalaVersions = Seq("2.12.10", "2.11.12")
     val scalaVersion       = crossScalaVersions.head
     val akkaVersion        = "2.5.26"
