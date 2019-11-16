@@ -44,6 +44,8 @@ lazy val root = (project in file(".")).
 
     publishTo := sonatypePublishTo.value,
     publishMavenStyle := true,
+    publishConfiguration := publishConfiguration.value.withOverwrite(true),
+    publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true),
 
     credentials += Credentials(
       "Sonatype Nexus Repository Manager",
