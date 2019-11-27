@@ -22,7 +22,7 @@ val updateReadme = { state: State =>
   IO.write(readmeFile, newReadme)
   val git = new Git(extracted get baseDirectory)
   git.add(readme) ! state.log.toScalaProcessLogger
-  git.commit("update " + readme, sign = false, signOff = false) ! state.log.toScalaProcessLogger
+  git.commit("Update " + readme, sign = false, signOff = false) ! state.log.toScalaProcessLogger
   git.cmd("diff", "HEAD^") ! state.log.toScalaProcessLogger
   state
 }
