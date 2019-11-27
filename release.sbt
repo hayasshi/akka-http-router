@@ -27,7 +27,7 @@ val updateReadme = { state: State =>
   state
 }
 
-releaseCrossBuild := true
+releaseCrossBuild := true // true if you cross-build the project for multiple Scala versions
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
   inquireVersions,
@@ -35,12 +35,12 @@ releaseProcess := Seq[ReleaseStep](
   runTest,
   setReleaseVersion,
   commitReleaseVersion,
+  updateReadme,
   tagRelease,
   // For non cross-build projects, use releaseStepCommand("publishSigned")
   releaseStepCommandAndRemaining("+publishSigned"),
+  releaseStepCommand("sonatypeBundleRelease"),
   setNextVersion,
   commitNextVersion,
-  updateReadme,
-  releaseStepCommand("sonatypeReleaseAll"),
   pushChanges
 )

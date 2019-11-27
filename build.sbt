@@ -1,4 +1,5 @@
 import Dependencies._
+import xerial.sbt.Sonatype._
 
 lazy val root = (project in file(".")).
   settings(
@@ -20,32 +21,14 @@ lazy val root = (project in file(".")).
       akkaHttpTestKit % Test
     ),
 
-    pomExtra in Global := {
-      <url>https://github.com/hayasshi/akka-http-router</url>
-      <licenses>
-        <license>
-          <name>Apache 2</name>
-          <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-      </licenses>
-      <scm>
-        <connection>scm:git:github.com/hayasshi/akka-http-router</connection>
-        <developerConnection>scm:git:git@github.com:hayasshi/akka-http-router</developerConnection>
-        <url>github.com/hayasshi/akka-http-router</url>
-      </scm>
-      <developers>
-        <developer>
-          <id>hayasshi</id>
-          <name>Daisuke Hayashi</name>
-          <url>https://github.com/hayasshi</url>
-        </developer>
-      </developers>
-    },
-
-    publishTo := sonatypePublishTo.value,
+    // for sbt-sonatype settings
+    sonatypeProfileName := organization.value,
     publishMavenStyle := true,
-    publishConfiguration := publishConfiguration.value.withOverwrite(true),
-    publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true),
+    publishTo := sonatypePublishToBundle.value,
+
+    // for sbt-sonatype pomExtra settings
+    licenses := Seq("APL2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt")),
+    sonatypeProjectHosting := Some(GitHubHosting("hayasshi", "akka-http-router", "Daisuke Hayashi", "daisuke0884@gmail.com")),
 
     credentials += Credentials(
       "Sonatype Nexus Repository Manager",
