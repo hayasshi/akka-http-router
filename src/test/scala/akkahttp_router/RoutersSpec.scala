@@ -4,9 +4,10 @@ import akka.http.scaladsl.model.HttpMethods._
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.{MethodRejection, Route}
 import akka.http.scaladsl.testkit.ScalatestRouteTest
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 
-class RoutersSpec extends FlatSpec with Matchers with ScalatestRouteTest {
+class RoutersSpec extends AnyFlatSpec with Matchers with ScalatestRouteTest {
 
   val categoryId = LongNumber
 
